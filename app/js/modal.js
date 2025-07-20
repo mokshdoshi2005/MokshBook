@@ -80,37 +80,37 @@ const modalData = {
             <h3 id="faq_folder">Frequently Asked Questions</h3>
             <div class="dropdown-container">
             <details id="faq_file">
-                <summary><strong>Q: What's your background?</strong></summary><br>
+                <summary><strong>Q: What's your background?</strong></summary>
                 <p>A: I'm a Computer Science Engineering student at VIT-Bhopal University, passionate about 3D graphics, AI/ML, and open-source development.</p>
             </details></div>
             
             <div class="dropdown-container">
             <details id="faq_file">
-                <summary><strong>Q: What programming languages do you work with?</strong></summary><br>
+                <summary><strong>Q: What programming languages do you work with?</strong></summary>
                 <p>A: I enjoy working across different tech stacks. I'm proficient in Python, C++, C, and JavaScript. I also have experience with BASH, Rust, Prolog, SQL, Java, and C#.</p>
             </details></div>
             
             <div class="dropdown-container">
             <details id="faq_file">
-                <summary><strong>Q: What software do you use?</strong></summary><br>
+                <summary><strong>Q: What software do you use?</strong></summary>
                 <p>A: Figma for design, Blender for 3D work, and various coding environments depending on the project.</p>
             </details></div>
             
             <div class="dropdown-container">
             <details id="faq_file">
-                <summary><strong>Q: Do you take on freelance projects?</strong></summary><br>
+                <summary><strong>Q: Do you take on freelance projects?</strong></summary>
                 <p>A: Yes! I'm always interested in collaborating on exciting projects that challenge my creativity.</p>
             </details></div>
             
             <div class="dropdown-container">
             <details id="faq_file">
-                <summary><strong>Q: What's your turnaround time?</strong></summary><br>
+                <summary><strong>Q: What's your turnaround time?</strong></summary>
                 <p>A: It depends on the scope, but I always communicate timelines clearly upfront and keep you updated throughout.</p>
             </details></div>
             
             <div class="dropdown-container">
             <details id="faq_file">
-                <summary><strong>Q: Are you available for internships or projects?</strong></summary><br>
+                <summary><strong>Q: Are you available for internships or projects?</strong></summary>
                 <p>A: Yes! I'm always interested in exciting opportunities, especially those involving 3D graphics, AI/ML, or open-source contributions. Feel free to reach out at doshimoksh3@gmail.com.</strong></p><br>
             </details></div>
         `
@@ -168,43 +168,43 @@ const modalData = {
                 <div class="address-section">
                     <div class="address-label">Services Available:</div>
                     <div class="services-grid">
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="web-dev" name="services">
                             <label for="web-dev">Web Development</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="mobile-dev" name="services">
                             <label for="mobile-dev">Mobile Apps</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="game-dev" name="services">
                             <label for="game-dev">Game Development</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="ui-design" name="services">
                             <label for="ui-design">UI/UX Design</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="api-dev" name="services">
                             <label for="api-dev">API Development</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="database" name="services">
                             <label for="database">Database Design</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="iot" name="services">
                             <label for="iot">IoT & Sensors</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="automation" name="services">
                             <label for="automation">Automation</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="consulting" name="services">
                             <label for="consulting">Tech Consulting</label>
                         </div>
-                        <div class="service-item">
+                        <div class="service-item" onclick="postcard()">
                             <input type="checkbox" id="prototyping" name="services">
                             <label for="prototyping">Prototyping</label>
                         </div>
@@ -251,7 +251,7 @@ const modalData = {
                 
 const pen = new Audio('app/audio/mixkit-short-pencil-writing-2376.wav');
 // Play sound on typing
-
+CONSOLE.LOG("WORK")
 document.querySelectorAll('input[type="text"], .message-lines').forEach(input => {
     input.addEventListener('keydown', () => {
         pen.currentTime = 0; // Reset to start
