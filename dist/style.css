@@ -1,4 +1,20 @@
 @charset "UTF-8";
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.off {
+  display: none;
+}
+
 .box {
   position: fixed;
   inset: 0 0 0 0;
@@ -825,18 +841,56 @@ details a:hover {
     font-size: 0.6em;
   }
 }
-*, *::after, *::before {
-  box-sizing: border-box;
+.git {
+  /* From Uiverse.io by aguerquin */
+  position: fixed;
+  top: 0;
+  right: 1rem;
+  scale: 0.7;
 }
-
-body {
-  margin: 0;
+.git .button-icon {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
+  border: 3px #fff solid;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  cursor: pointer;
 }
-
-.off {
-  display: none;
+.git .icon {
+  background-color: #fff;
+  padding: 10px 10px 5px 10px;
+}
+.git .icon svg {
+  width: 25px;
+  height: 25px;
+}
+.git .cube {
+  transition: all 0.4s;
+  transform-style: preserve-3d;
+  width: 200px;
+  height: 20px;
+}
+.git .button-icon:hover {
+  border-color: #98dbff;
+}
+.git .button-icon:hover .cube {
+  transform: rotateX(90deg);
+}
+.git .side {
+  position: absolute;
+  height: 47px;
+  width: 200px;
+  display: flex;
+  font-size: 0.8em;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+.git .top {
+  background: #98dbff;
+  color: #fff;
+  transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
 }/*# sourceMappingURL=style.css.map */
