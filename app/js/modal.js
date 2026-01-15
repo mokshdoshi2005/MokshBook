@@ -1,274 +1,147 @@
 //audios
 const clickClose = new Audio('app/audio/click_close.mp3');
- 
+
 // Modal content data
 const modalData = {
     about: {
         title: 'about',
-        icon: `<circle cx="12" cy="12" r="10"></circle>
-                <path d="m9,9h0a3,3 0 016,0v1a2,2 0 01-2,2h-1"></path>
-                <circle cx="12" cy="17" r="1"></circle>`,
         content: `
             <h3>Hello there! <span class="on-wave">👋</span></h3>
-            <p>I'm Moksh, a pseudo-creative non-professional, passionate about bringing ideas to life through visual storytelling and technology.</p>
+            <p>I'm Moksh, a creative developer and designer passionate about crafting digital experiences that push boundaries and leave lasting impressions.</p>
             
             <h3>What I Do</h3>
             <ul>
-                <li><strong>Development:</strong> Building interactive experiences and web applications</li>
-                <li><strong>Design:</strong> Creating compelling visual narratives and artwork</li>
-                <li><strong>Testing:</strong> </li>
+                <li><strong>Development:</strong> Building performant, accessible web applications with modern technologies</li>
+                <li><strong>Design:</strong> Creating compelling visual narratives and intuitive user experiences</li>
+                <li><strong>3D & Motion:</strong> Exploring the intersection of code and creative expression</li>
             </ul>
             
-            <p>I love combining autistic creativity with technical skills to create unique, my inspiration led me to a work of patches (scrapbook effect).</p>
+            <h3>Currently</h3>
+            <p>I'm a Computer Science Engineering student at VIT-Bhopal University, diving deep into 3D graphics, AI/ML, and open-source development.</p>
         `
     },
     links: {
         title: 'links',
-        icon: `<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>`,
         content: `
-            <h3>Find Me Online</h3>
-            <p>Connect with me on various platforms to see my work and stay updated:</p>
+            <h3>Connect With Me</h3>
+            <p>Find me across the web — I'm always excited to connect with fellow creators and developers.</p>
             
             <ul>
-                <li><strong>Portfolio:</strong> My latest creative projects and case studies</li>
-                <li><strong>GitHub:</strong> projects and code repositories</li>
-                <li><strong>Dribbble:</strong> Design and illustration showcase</li>
-                <li><strong>LinkedIn:</strong> Professional network and career updates</li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/mokshdoshi2005" target="_blank">@mokshdoshi2005</a></li>
+                <li><strong>LinkedIn:</strong> Professional network and career journey</li>
+                <li><strong>Dribbble:</strong> Design explorations and visual work</li>
+                <li><strong>Twitter/X:</strong> Thoughts on tech, design & creativity</li>
             </ul>
             
-            <p>Feel free to follow along on my creative journey!</p>
+            <p>Feel free to reach out!</p>
         `
     },
     work: {
-        title: 'work',
-        icon: `<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                <path d="M9 13h6"></path>
-                <path d="M9 17h3"></path>`,
+        title: 'works',
         content: `
-            <h3>Recent Projects</h3>
-            <p>Here's a selection of my recent work across different mediums:</p>
+            <h3>Selected Work</h3>
+            <p>A curated selection of projects that showcase my skills across different domains.</p>
             
-            <h3>Projects</h3>
+            <h3>Development</h3>
             <ul>
-                <li>Character animation for indie game studios</li>
-                <li>Motion graphics for digital marketing campaigns</li>
-                <li>Explainer video animations for tech startups</li>
+                <li>Interactive portfolio websites with cutting-edge animations</li>
+                <li>Full-stack web applications with modern architectures</li>
+                <li>Creative coding experiments & generative art</li>
+                <li>Open-source tools and libraries</li>
             </ul>
             
-            <h3>Development Work</h3>
+            <h3>Design & 3D</h3>
             <ul>
-                <li>Interactive portfolio websites</li>
-                <li>Creative coding experiments</li>
-                <li>Web applications with engaging UI/UX</li>
-            </ul>
-            
-            <h3>Poster</h3>
-            <ul>
-                <li>Book and magazine illustrations</li>
+                <li>UI/UX design for web and mobile applications</li>
+                <li>3D modeling and rendering in Blender</li>
+                <li>Motion graphics and visual effects</li>
                 <li>Brand identity and logo design</li>
-                <li>Digital art and concept work</li>
             </ul>
+            
+            <p><em>More projects coming soon!</em></p>
         `
     },
     faq: {
         title: 'faq',
-        icon: `<rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                <path d="M9 9h0a3 3 0 0 1 6 0v1a2 2 0 0 1-2 2h-1"></path>
-                <circle cx="12" cy="17" r="1"></circle>`,
         content: `
-            <h3 id="faq_folder">Frequently Asked Questions</h3>
-            <div class="dropdown-container">
-            <details id="faq_file">
-                <summary><strong>Q: What's your background?</strong></summary>
-                <p>A: I'm a Computer Science Engineering student at VIT-Bhopal University, passionate about 3D graphics, AI/ML, and open-source development.</p>
-            </details></div>
+            <h3>Frequently Asked Questions</h3>
             
             <div class="dropdown-container">
-            <details id="faq_file">
-                <summary><strong>Q: What programming languages do you work with?</strong></summary>
-                <p>A: I enjoy working across different tech stacks. I'm proficient in Python, C++, C, and JavaScript. I also have experience with BASH, Rust, Prolog, SQL, Java, and C#.</p>
-            </details></div>
+                <details>
+                    <summary><strong>What's your tech stack?</strong></summary>
+                    <p>I work with Python, JavaScript/TypeScript, C++, and Rust. For web development, I use React, Next.js, and Node.js.</p>
+                </details>
+            </div>
             
             <div class="dropdown-container">
-            <details id="faq_file">
-                <summary><strong>Q: What software do you use?</strong></summary>
-                <p>A: Figma for design, Blender for 3D work, and various coding environments depending on the project.</p>
-            </details></div>
+                <details>
+                    <summary><strong>Are you available for freelance work?</strong></summary>
+                    <p>Yes! I'm always interested in exciting projects that challenge my creativity.</p>
+                </details>
+            </div>
             
             <div class="dropdown-container">
-            <details id="faq_file">
-                <summary><strong>Q: Do you take on freelance projects?</strong></summary>
-                <p>A: Yes! I'm always interested in collaborating on exciting projects that challenge my creativity.</p>
-            </details></div>
+                <details>
+                    <summary><strong>What software do you use?</strong></summary>
+                    <p>VS Code for coding, Figma for design, Blender for 3D work.</p>
+                </details>
+            </div>
             
             <div class="dropdown-container">
-            <details id="faq_file">
-                <summary><strong>Q: What's your turnaround time?</strong></summary>
-                <p>A: It depends on the scope, but I always communicate timelines clearly upfront and keep you updated throughout.</p>
-            </details></div>
-            
-            <div class="dropdown-container">
-            <details id="faq_file">
-                <summary><strong>Q: Are you available for internships or projects?</strong></summary>
-                <p>A: Yes! I'm always interested in exciting opportunities, especially those involving 3D graphics, AI/ML, or open-source contributions. Feel free to reach out at doshimoksh3@gmail.com.</strong></p><br>
-            </details></div>
+                <details>
+                    <summary><strong>Do you take on internships?</strong></summary>
+                    <p>Absolutely! Reach out at doshimoksh3@gmail.com.</p>
+                </details>
+            </div>
         `
     },
     contact: {
         title: 'contact',
-        icon: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-                <path d="M16 10l6 6"></path>`,
         content: `
-            <h3>Get In Touch</h3>
-            <p>Ready to collaborate or just want to say hello? I'd love to hear from you!</p>
+            <h3>Let's Create Something Amazing</h3>
+            <p>Whether you have a project in mind or just want to say hello — I'd love to hear from you!</p>
             
-            <h3>Email</h3>
-            <p>doshimoksh3@gmail.com<br>
-            <small>I typically respond within 48 hours</small></p>
-            
-            <h3>For Project Inquiries</h3>
-            <p>Please include:</p>
-            <ul>
-                <li>Brief project description</li>
-                <li>Timeline and budget range</li>
-                <li>Any reference materials</li>
-                <li>Preferred communication method</li>
-            </ul>
-
             <div class="postcard">
-        <div class="postcard-header">DEVELOPER FOR HIRE</div>
-        
-        <div class="vintage-stamps">
-            <div class="stamp">
-                <div class="stamp-content">
-                    <div>CODE</div>
-                    <div>CRAFT</div>
-                    <div>25¢</div>
-                </div>
-            </div>
-            <div class="stamp stamp-2">
-                <div class="stamp-content">
-                    <div>DIGITAL</div>
-                    <div>SOLUTIONS</div>
-                    <div>15¢</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="postmark">
-            <div>AVAILABLE</div>
-            <div>FOR HIRE</div>
-            <div>2024</div>
-        </div>
-        
-        <div class="content-area">
-            <div class="left-panel">
-                <div class="address-section">
-                    <div class="address-label">Services Available:</div>
-                    <div class="services-grid">
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="web-dev" name="services">
-                            <label for="web-dev">Web Development</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="mobile-dev" name="services">
-                            <label for="mobile-dev">Mobile Apps</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="game-dev" name="services">
-                            <label for="game-dev">Game Development</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="ui-design" name="services">
-                            <label for="ui-design">UI/UX Design</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="api-dev" name="services">
-                            <label for="api-dev">API Development</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="database" name="services">
-                            <label for="database">Database Design</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="iot" name="services">
-                            <label for="iot">IoT & Sensors</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="automation" name="services">
-                            <label for="automation">Automation</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="consulting" name="services">
-                            <label for="consulting">Tech Consulting</label>
-                        </div>
-                        <div class="service-item" onclick="postcard()">
-                            <input type="checkbox" id="prototyping" name="services">
-                            <label for="prototyping">Prototyping</label>
-                        </div>
+                <div class="postcard-header">📬 Developer for Hire</div>
+                
+                <div class="address-label">Services I Offer:</div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <input type="checkbox" id="web-dev" name="services">
+                        <label for="web-dev">Web Development</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="ui-design" name="services">
+                        <label for="ui-design">UI/UX Design</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="3d-work" name="services">
+                        <label for="3d-work">3D & Motion</label>
+                    </div>
+                    <div class="service-item">
+                        <input type="checkbox" id="consulting" name="services">
+                        <label for="consulting">Consulting</label>
                     </div>
                 </div>
+                
+                <div class="address-label">Your Message:</div>
+                <input class="message-lines" placeholder="Hi Moksh, I'd love to discuss..." id="message-line-1">
+                <input class="message-lines" placeholder="My project is about..." id="message-line-2">
+                
+                <input class="signature-line" placeholder="Your Name">
+                
+                <button class="send-button" onclick="sendPostcard()">✉️ Send Message</button>
                 
                 <div class="contact-info-vintage">
-                    <h4>Developer Contact:</h4>
+                    <h4>Direct Contact</h4>
                     <div class="contact-line">📧 doshimoksh3@gmail.com</div>
-                    <div class="contact-line">🌐 Available Worldwide</div>
-                    <div class="contact-line">⚡ Quick Response Time</div>
+                    <div class="contact-line">⚡ Usually responds within 48hrs</div>
                 </div>
             </div>
-            
-            <div class="divider"></div>
-            
-            <div class="right-panel">
-                <div class="address-section">
-                    <div class="address-label">Message:</div>
-                    <div class="message-area">
-                        <input class="message-lines" placeholder="Dear Developer, I need help with..." id="message-line-1">
-                        <input class="message-lines" placeholder="My project involves..." id="message-line-2">
-                        <input class="message-lines" placeholder="Timeline and budget..." id="message-line-3">
-                        <input class="message-lines" placeholder="Additional requirements..." id="message-line-4">
-                        <input class="message-lines" placeholder="Contact me at..." id="message-line-5">
-                    </div>
-                    
-                    <div class="signature-area">
-                        <input class="signature-line" placeholder="Your Name">
-                        <div style="font-size: 0.7em; color: #666; margin-top: 5px;">Signature</div>
-                    </div>
-                    
-                    <button class="send-button" onclick="sendPostcard()">SEND POSTCARD</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="watermark">EST. 2025 • PREMIUM DEVELOPMENT SERVICES</div>
-    </div>
-            
-            <p>Looking forward to hearing about your project and discussing how we can work together to bring your vision to life!</p>
-
-            <script>
-                
-const pen = new Audio('app/audio/mixkit-short-pencil-writing-2376.wav');
-// Play sound on typing
-CONSOLE.LOG("WORK")
-document.querySelectorAll('input[type="text"], .message-lines').forEach(input => {
-    input.addEventListener('keydown', () => {
-        pen.currentTime = 0; // Reset to start
-        pen.play().catch(e => console.log('Audio play failed'));
-    });
-});
-
-// Play sound on checkbox clicks
-document.querySelectorAll('.service-item').forEach(item => {
-    item.addEventListener('click', () => {
-        pen.play().catch(e => console.log('Audio play failed'));
-    });
-});
-            </script>
         `
     }
 };
+
 // Modal management
 let modalCounter = 0;
 let activeModals = new Map();
@@ -282,22 +155,15 @@ function createModal(section) {
 
     modalCounter++;
     const modalId = `modal-${section}-${modalCounter}`;
-    
+
     // Calculate position for new modals (slight offset)
-    const offsetX = (modalCounter - 1) * 30;
-    const offsetY = (modalCounter - 1) * 30;
-    const startX = 50 + (offsetX / window.innerWidth) * 100;
-    const startY = 50 + (offsetY / window.innerHeight) * 100;
+    const offsetX = (modalCounter - 1) * 20;
+    const offsetY = (modalCounter - 1) * 20;
 
     const modalHTML = `
-        <div class="modal" id="${modalId}" style="left: ${startX}%; top: ${startY}%;">
+        <div class="modal" id="${modalId}">
             <div class="modal-header">
-                <h2>
-                    <svg class="icon" style="width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.5; fill: none;" viewBox="0 0 24 24">
-                        ${data.icon}
-                    </svg>
-                    ${data.title}
-                </h2>
+                <h2>${data.title}</h2>
                 <button class="modal-close" onclick="closeModal('${modalId}')">&times;</button>
             </div>
             <div class="modal-content">
@@ -308,7 +174,12 @@ function createModal(section) {
 
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     const modal = document.getElementById(modalId);
-    
+
+    // Apply offset
+    if (modalCounter > 1) {
+        modal.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px)) scale(1)`;
+    }
+
     // Store modal reference
     activeModals.set(modalId, modal);
 
@@ -322,10 +193,15 @@ function createModal(section) {
 
     return modalId;
 }
+
 function closeModal(modalId) {
     const modal = activeModals.get(modalId);
     if (!modal) return;
-    clickClose.play();
+
+    try {
+        clickClose.play();
+    } catch (e) { }
+
     modal.classList.remove('active');
     setTimeout(() => {
         modal.remove();
@@ -335,27 +211,24 @@ function closeModal(modalId) {
 
 function setupModalDrag(modal) {
     const header = modal.querySelector('.modal-header');
-    
+
     header.addEventListener('mousedown', (e) => {
         // Don't drag if clicking on close button
         if (e.target.closest('.modal-close')) return;
-        
+
         isDragging = true;
         currentModal = modal;
-        
+
         // Bring modal to front
-        const maxZ = Math.max(...Array.from(activeModals.values()).map(m => 
-            parseInt(getComputedStyle(m).zIndex) || 1000
+        const maxZ = Math.max(...Array.from(activeModals.values()).map(m =>
+            parseInt(getComputedStyle(m).zIndex) || 2000
         ));
         modal.style.zIndex = maxZ + 1;
-        
+
         const rect = modal.getBoundingClientRect();
-        const modalCenterX = rect.left + rect.width / 2;
-        const modalCenterY = rect.top + rect.height / 2;
-        
-        dragOffset.x = e.clientX - modalCenterX;
-        dragOffset.y = e.clientY - modalCenterY;
-        
+        dragOffset.x = e.clientX - rect.left;
+        dragOffset.y = e.clientY - rect.top;
+
         header.style.cursor = 'grabbing';
         e.preventDefault();
     });
@@ -364,23 +237,13 @@ function setupModalDrag(modal) {
 // Global drag handlers
 document.addEventListener('mousemove', (e) => {
     if (!isDragging || !currentModal) return;
-    
+
     const newX = e.clientX - dragOffset.x;
     const newY = e.clientY - dragOffset.y;
-    
-    // Keep modal within viewport bounds
-    const rect = currentModal.getBoundingClientRect();
-    const maxX = window.innerWidth - rect.width / 2;
-    const maxY = window.innerHeight - rect.height / 2;
-    const minX = rect.width / 2;
-    const minY = rect.height / 2;
-    
-    const clampedX = Math.max(minX, Math.min(maxX, newX));
-    const clampedY = Math.max(minY, Math.min(maxY, newY));
-    
-    currentModal.style.left = clampedX + 'px';
-    currentModal.style.top = clampedY + 'px';
-    currentModal.style.transform = 'translate(-50%, -50%) scale(1)';
+
+    currentModal.style.left = newX + 'px';
+    currentModal.style.top = newY + 'px';
+    currentModal.style.transform = 'none';
 });
 
 document.addEventListener('mouseup', () => {
@@ -395,7 +258,6 @@ document.addEventListener('mouseup', () => {
 // Keyboard support
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        // Close the most recently opened modal
         const modals = Array.from(activeModals.values());
         if (modals.length > 0) {
             const lastModal = modals[modals.length - 1];
@@ -406,27 +268,36 @@ document.addEventListener('keydown', (e) => {
 
 // Navigation items click handlers
 const clickOpen = new Audio('app/audio/click_general.mp3');
+
 document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
-        clickOpen.play();
-        const section = item.getAttribute('href').substring(1);
-        
-        // Click animation
-        item.style.transform = 'scale(0.95) translateY(-3px)';
-        setTimeout(() => {
-            item.style.transform = 'translateY(-3px)';
+
+        try {
+            clickOpen.play();
+        } catch (err) { }
+
+        // Get section from data-section attribute
+        const section = item.getAttribute('data-section');
+
+        if (section && modalData[section]) {
             createModal(section);
-        }, 150);
+        }
     });
 });
 
-// Add smooth hover effects and original background animation
-document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
-    
-    document.body.style.background = `linear-gradient(${135 + mouseX * 10}deg, 
-        hsl(${210 + mouseX * 20}, ${30 + mouseY * 20}%, ${96 - mouseY * 5}%) 0%, 
-        hsl(${220 + mouseX * 15}, ${35 + mouseY * 15}%, ${85 - mouseY * 10}%) 100%)`;
-});
+// Send postcard function
+function sendPostcard() {
+    const message1 = document.getElementById('message-line-1')?.value || '';
+    const message2 = document.getElementById('message-line-2')?.value || '';
+
+    const fullMessage = `${message1}\n${message2}`.trim();
+
+    if (fullMessage) {
+        const subject = encodeURIComponent('Project Inquiry from Portfolio');
+        const body = encodeURIComponent(fullMessage);
+        window.open(`mailto:doshimoksh3@gmail.com?subject=${subject}&body=${body}`);
+    } else {
+        alert('Please fill in at least one message field!');
+    }
+}
