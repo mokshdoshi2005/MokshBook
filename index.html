@@ -1,113 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moksh's Book</title>
-    <link rel="stylesheet" href="/dist/style.css">
-    <script defer src="/app/js/text-rotate.js"></script>
-    <script defer src="/app/js/modal.js"></script>
-    <script defer src="/app/js/audio.js"></script>
-    <link rel="shortcut icon" href="https://cdn.dribbble.com/userupload/43691707/file/original-e060514d4d5578dbb536947a259bd493.jpg?resize=1504x1128&vertical=center" type="image/x-icon" width="20px"/> <!--by Zhenya Artemjev https://dribbble.com/shots/26145531-Harry-Carman -->
+    <title>Moksh Doshi — Developer & Designer</title>
+    <meta name="description" content="Creative developer and designer crafting digital experiences.">
+    <link rel="stylesheet" href="./dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script defer src="./app/js/text-rotate.js"></script>
+    <script defer src="./app/js/modal.js"></script>
+    <link rel="shortcut icon"
+        href="https://cdn.dribbble.com/userupload/43691707/file/original-e060514d4d5578dbb536947a259bd493.jpg?resize=1504x1128&vertical=center"
+        type="image/x-icon" />
 </head>
+
 <body>
-    
-    <div class="bg">
-        <span class="box"></span>
+    <!-- Animated Ocean Background -->
+    <div class="ocean-bg">
+        <canvas id="oceanCanvas"></canvas>
+        <div class="ocean-overlay"></div>
     </div>
-    
-    
-    <div class="card">
-        <nav class="card-bar">home</nav>
-        
-        <div class="card-wrapper ">
-            <div class="content">
-                <h1 class="greeting">
-                    <span class="hi">hey! </span>
-                    <span class="name">I'm Moksh</span>
-                </h1>
-                
-                <p class="tagline">developer, designer & tester</p>
-                
-                <nav class="nav-icons">
-                    <a href="#about" class="nav-item">
-                        <svg class="icon" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="m9,9h0a3,3 0 016,0v1a2,2 0 01-2,2h-1"></path>
-                        <circle cx="12" cy="17" r="1"></circle>
+
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="/" class="logo">
+                <span class="logo-icon">M</span>
+                <span class="logo-text">moksh.dev</span>
+            </a>
+        </div>
+
+        <nav class="topbar-center">
+            <a href="#" class="topbar-link active" data-section="home">Home</a>
+            <a href="#about" class="topbar-link nav-item" data-section="about">About</a>
+            <a href="#work" class="topbar-link nav-item" data-section="work">Works</a>
+            <a href="#contact" class="topbar-link nav-item" data-section="contact">Contact</a>
+        </nav>
+
+        <div class="topbar-right">
+            <span class="keyboard-shortcut">⌘K</span>
+            <span class="clock" id="clock">00:00:00</span>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+        <!-- Hero Window -->
+        <div class="window window-hero" id="window-hero">
+            <div class="window-header">
+                <span class="window-title">~/moksh/hello.md</span>
+                <div class="window-controls">
+                    <button class="window-btn window-minimize">−</button>
+                    <button class="window-btn window-maximize">□</button>
+                    <button class="window-btn window-close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="hero-content">
+                    <p class="hero-greeting">
+                        <span class="line-number">01</span>
+                        <span class="wave">👋</span> Hey there, I'm
+                    </p>
+                    <h1 class="hero-name">
+                        <span class="line-number">02</span>
+                        <span class="name-text">Moksh Doshi</span>
+                    </h1>
+                    <p class="hero-tagline">
+                        <span class="line-number">03</span>
+                        <span class="tagline-text">Developer × Designer × Creator</span>
+                    </p>
+                    <div class="hero-status">
+                        <span class="line-number">04</span>
+                        <span class="status-badge">
+                            <span class="status-dot"></span>
+                            Available for work
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Cards Grid -->
+        <div class="cards-grid">
+            <a href="#about" class="card nav-item" data-section="about">
+                <div class="card-number">01</div>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
                     </svg>
-                    <span class="nav-label">about</span>
-                </a>
-                
-                <a href="#links" class="nav-item">
-                    <svg class="icon" viewBox="0 0 24 24">
+                </div>
+                <h3 class="card-title">About</h3>
+                <p class="card-desc">Who I am & what drives me</p>
+                <span class="card-arrow">↗</span>
+            </a>
+
+            <a href="#links" class="card nav-item" data-section="links">
+                <div class="card-number">02</div>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                     </svg>
-                    <span class="nav-label">links</span>
-                </a>
-                
-                <a href="#work" class="nav-item">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                        <path d="M9 13h6"></path>
-                        <path d="M9 17h3"></path>
+                </div>
+                <h3 class="card-title">Links</h3>
+                <p class="card-desc">Find me online</p>
+                <span class="card-arrow">↗</span>
+            </a>
+
+            <a href="#work" class="card nav-item" data-section="work">
+                <div class="card-number">03</div>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                        <path d="M8 21h8M12 17v4"></path>
                     </svg>
-                    <span class="nav-label">work</span>
-                </a>
-                
-                <a href="#faq" class="nav-item">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                        <path d="M9 9h0a3 3 0 0 1 6 0v1a2 2 0 0 1-2 2h-1"></path>
-                        <circle cx="12" cy="17" r="1"></circle>
+                </div>
+                <h3 class="card-title">Works</h3>
+                <p class="card-desc">Selected projects</p>
+                <span class="card-arrow">↗</span>
+            </a>
+
+            <a href="#faq" class="card nav-item" data-section="faq">
+                <div class="card-number">04</div>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9 9h0a3 3 0 0 1 6 0c0 2-3 3-3 3"></path>
+                        <circle cx="12" cy="17" r="0.5"></circle>
                     </svg>
-                    <span class="nav-label">faq</span>
-                </a>
-                
-                <a href="#contact" class="nav-item">
-                    <svg class="icon" viewBox="0 0 24 24">
+                </div>
+                <h3 class="card-title">FAQ</h3>
+                <p class="card-desc">Common questions</p>
+                <span class="card-arrow">↗</span>
+            </a>
+
+            <a href="#contact" class="card card-featured nav-item" data-section="contact">
+                <div class="card-number">05</div>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
-                        <path d="M16 10l6 6"></path>
                     </svg>
-                    <span class="nav-label">contact</span>
-                </a>
-            </nav>
-        </div>
-    </div>
-    </div>
-
-    <!-- Modal -->
-
-    <a class="git" href="https://github.com/mokshdoshi2005">
-        <!-- From Uiverse.io by aguerquin --> 
-        <div class="button-icon">
-        <div class="icon">
-            <svg viewBox="0 0 24 24">
-            <path
-                d="M12 0.296997C5.37 0.296997 0 5.67 0 12.297C0 17.6 3.438 22.097 8.205 23.682C8.805 23.795 9.025 23.424 9.025 23.105C9.025 22.82 9.015 22.065 9.01 21.065C5.672 21.789 4.968 19.455 4.968 19.455C4.422 18.07 3.633 17.7 3.633 17.7C2.546 16.956 3.717 16.971 3.717 16.971C4.922 17.055 5.555 18.207 5.555 18.207C6.625 20.042 8.364 19.512 9.05 19.205C9.158 18.429 9.467 17.9 9.81 17.6C7.145 17.3 4.344 16.268 4.344 11.67C4.344 10.36 4.809 9.29 5.579 8.45C5.444 8.147 5.039 6.927 5.684 5.274C5.684 5.274 6.689 4.952 8.984 6.504C9.944 6.237 10.964 6.105 11.984 6.099C13.004 6.105 14.024 6.237 14.984 6.504C17.264 4.952 18.269 5.274 18.269 5.274C18.914 6.927 18.509 8.147 18.389 8.45C19.154 9.29 19.619 10.36 19.619 11.67C19.619 16.28 16.814 17.295 14.144 17.59C14.564 17.95 14.954 18.686 14.954 19.81C14.954 21.416 14.939 22.706 14.939 23.096C14.939 23.411 15.149 23.786 15.764 23.666C20.565 22.092 24 17.592 24 12.297C24 5.67 18.627 0.296997 12 0.296997Z"
-                fill="#222229"
-            ></path>
-            </svg>
-        </div>
-        <div class="cube">
-            <span class="side front">hover me</span>
-            <span class="side top">check it on github</span>
-        </div>
-        </div>
-
-    </a>
-    <div class="container off">
-        <div class="text-content">
-            <span class="static-text">Make it </span>
-            <span class="text-rotate">
-                <span class="sr-only" id="sr-text">work!</span>
-                <div class="text-container" id="text-container" aria-hidden="true">
-                    <!-- Dynamic content will be inserted here -->
                 </div>
+                <h3 class="card-title">Contact</h3>
+                <p class="card-desc">Let's talk</p>
+                <span class="card-arrow">↗</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Bottom Taskbar -->
+    <footer class="taskbar">
+        <div class="taskbar-left">
+            <span class="taskbar-label">Make it</span>
+            <span class="text-rotate-wrapper">
+                <span class="sr-only" id="sr-text">work!</span>
+                <span class="text-container" id="text-container"></span>
             </span>
         </div>
-    </div>
+
+        <div class="taskbar-center">
+            <a href="https://github.com/mokshdoshi2005" target="_blank" class="taskbar-item">
+                <svg viewBox="0 0 24 24" class="taskbar-icon">
+                    <path
+                        d="M12 0.296997C5.37 0.296997 0 5.67 0 12.297C0 17.6 3.438 22.097 8.205 23.682C8.805 23.795 9.025 23.424 9.025 23.105C9.025 22.82 9.015 22.065 9.01 21.065C5.672 21.789 4.968 19.455 4.968 19.455C4.422 18.07 3.633 17.7 3.633 17.7C2.546 16.956 3.717 16.971 3.717 16.971C4.922 17.055 5.555 18.207 5.555 18.207C6.625 20.042 8.364 19.512 9.05 19.205C9.158 18.429 9.467 17.9 9.81 17.6C7.145 17.3 4.344 16.268 4.344 11.67C4.344 10.36 4.809 9.29 5.579 8.45C5.444 8.147 5.039 6.927 5.684 5.274C5.684 5.274 6.689 4.952 8.984 6.504C9.944 6.237 10.964 6.105 11.984 6.099C13.004 6.105 14.024 6.237 14.984 6.504C17.264 4.952 18.269 5.274 18.269 5.274C18.914 6.927 18.509 8.147 18.389 8.45C19.154 9.29 19.619 10.36 19.619 11.67C19.619 16.28 16.814 17.295 14.144 17.59C14.564 17.95 14.954 18.686 14.954 19.81C14.954 21.416 14.939 22.706 14.939 23.096C14.939 23.411 15.149 23.786 15.764 23.666C20.565 22.092 24 17.592 24 12.297C24 5.67 18.627 0.296997 12 0.296997Z" />
+                </svg>
+                <span>GitHub</span>
+            </a>
+            <a href="mailto:doshimoksh3@gmail.com" class="taskbar-item">
+                <svg viewBox="0 0 24 24" class="taskbar-icon">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Email</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="taskbar-item">
+                <svg viewBox="0 0 24 24" class="taskbar-icon">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+
+        <div class="taskbar-right">
+            <span class="version">v2.0</span>
+        </div>
+    </footer>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('clock').textContent = time;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Window dragging
+        document.querySelectorAll('.window-header').forEach(header => {
+            let isDragging = false;
+            let startX, startY, startLeft, startTop;
+
+            header.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.window-btn')) return;
+                isDragging = true;
+                const win = header.parentElement;
+                const rect = win.getBoundingClientRect();
+                startX = e.clientX;
+                startY = e.clientY;
+                startLeft = rect.left;
+                startTop = rect.top;
+                win.style.position = 'fixed';
+                win.style.zIndex = '100';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const win = header.parentElement;
+                win.style.left = (startLeft + e.clientX - startX) + 'px';
+                win.style.top = (startTop + e.clientY - startY) + 'px';
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+        });
+
+        // Active nav link
+        document.querySelectorAll('.topbar-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelectorAll('.topbar-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ================================
+        // ANIMATED OCEAN BACKGROUND
+        // ================================
+        const canvas = document.getElementById('oceanCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let time = 0;
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Wave parameters
+        const waves = [];
+        const numWaves = 5;
+
+        for (let i = 0; i < numWaves; i++) {
+            waves.push({
+                amplitude: 20 + Math.random() * 30,
+                frequency: 0.002 + Math.random() * 0.003,
+                speed: 0.02 + Math.random() * 0.02,
+                phase: Math.random() * Math.PI * 2,
+                opacity: 0.1 + Math.random() * 0.15
+            });
+        }
+
+        // Foam particles
+        const foamParticles = [];
+        const numFoam = 80;
+
+        for (let i = 0; i < numFoam; i++) {
+            foamParticles.push({
+                x: Math.random() * 2000,
+                y: Math.random() * 2000,
+                size: 2 + Math.random() * 8,
+                speedX: -0.3 - Math.random() * 0.5,
+                speedY: -0.1 - Math.random() * 0.3,
+                opacity: 0.3 + Math.random() * 0.5,
+                wobble: Math.random() * Math.PI * 2
+            });
+        }
+
+        // Ripple effect
+        const ripples = [];
+
+        function createRipple(x, y, isClick = false) {
+            if (ripples.length < 10) {
+                ripples.push({
+                    x: x !== undefined ? x : Math.random() * width,
+                    y: y !== undefined ? y : Math.random() * height,
+                    radius: 0,
+                    maxRadius: isClick ? 200 + Math.random() * 100 : 100 + Math.random() * 150,
+                    opacity: isClick ? 0.5 : 0.3,
+                    speed: isClick ? 2 + Math.random() : 1 + Math.random()
+                });
+            }
+        }
+
+        // Auto ripples
+        setInterval(() => createRipple(), 2000);
+
+        // Click ripples
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            createRipple(x, y, true);
+            // Create a few extra ripples nearby for a more dramatic effect
+            setTimeout(() => createRipple(x + 30, y + 20, true), 100);
+            setTimeout(() => createRipple(x - 20, y + 30, true), 200);
+        });
+
+        function drawOcean() {
+            // Create gradient for ocean depth
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, '#0a4c6b');
+            gradient.addColorStop(0.3, '#0d7a9e');
+            gradient.addColorStop(0.5, '#12a5c7');
+            gradient.addColorStop(0.7, '#1ab5d4');
+            gradient.addColorStop(1, '#0d5a7a');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw wave layers
+            waves.forEach((wave, index) => {
+                ctx.beginPath();
+                ctx.moveTo(0, height);
+
+                for (let x = 0; x <= width; x += 10) {
+                    const y = Math.sin(x * wave.frequency + time * wave.speed + wave.phase) * wave.amplitude;
+                    const y2 = Math.cos(x * wave.frequency * 0.5 + time * wave.speed * 1.5) * wave.amplitude * 0.5;
+                    ctx.lineTo(x, height / 2 + y + y2 + (index - numWaves / 2) * 50);
+                }
+
+                ctx.lineTo(width, height);
+                ctx.closePath();
+
+                const waveGradient = ctx.createLinearGradient(0, 0, 0, height);
+                waveGradient.addColorStop(0, `rgba(150, 220, 240, ${wave.opacity})`);
+                waveGradient.addColorStop(1, `rgba(50, 150, 180, ${wave.opacity * 0.5})`);
+
+                ctx.fillStyle = waveGradient;
+                ctx.fill();
+            });
+
+            // Draw foam patterns
+            foamParticles.forEach(foam => {
+                foam.x += foam.speedX;
+                foam.y += foam.speedY;
+                foam.wobble += 0.05;
+
+                // Reset position if out of bounds
+                if (foam.x < -50) foam.x = width + 50;
+                if (foam.y < -50) foam.y = height + 50;
+
+                const wobbleX = Math.sin(foam.wobble) * 2;
+                const wobbleY = Math.cos(foam.wobble * 0.7) * 2;
+
+                // Draw foam as organic shapes
+                ctx.beginPath();
+                ctx.arc(foam.x + wobbleX, foam.y + wobbleY, foam.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${foam.opacity * (0.5 + Math.sin(time * 0.05 + foam.wobble) * 0.3)})`;
+                ctx.fill();
+
+                // Add some smaller bubbles around
+                for (let i = 0; i < 3; i++) {
+                    const angle = (time * 0.02 + i * 2) + foam.wobble;
+                    const dist = foam.size + 5;
+                    ctx.beginPath();
+                    ctx.arc(
+                        foam.x + wobbleX + Math.cos(angle) * dist,
+                        foam.y + wobbleY + Math.sin(angle) * dist,
+                        foam.size * 0.3,
+                        0, Math.PI * 2
+                    );
+                    ctx.fillStyle = `rgba(255, 255, 255, ${foam.opacity * 0.4})`;
+                    ctx.fill();
+                }
+            });
+
+            // Draw ripples
+            ripples.forEach((ripple, index) => {
+                ripple.radius += ripple.speed;
+                ripple.opacity = 0.3 * (1 - ripple.radius / ripple.maxRadius);
+
+                if (ripple.radius < ripple.maxRadius) {
+                    ctx.beginPath();
+                    ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${ripple.opacity})`;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    // Inner ripple
+                    ctx.beginPath();
+                    ctx.arc(ripple.x, ripple.y, ripple.radius * 0.7, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(200, 240, 255, ${ripple.opacity * 0.5})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                } else {
+                    ripples.splice(index, 1);
+                }
+            });
+
+            // Add subtle caustic light patterns
+            ctx.globalCompositeOperation = 'overlay';
+            for (let i = 0; i < 8; i++) {
+                const x = (Math.sin(time * 0.01 + i) * 0.5 + 0.5) * width;
+                const y = (Math.cos(time * 0.015 + i * 1.5) * 0.5 + 0.5) * height;
+                const radius = 100 + Math.sin(time * 0.02 + i) * 50;
+
+                const causticGradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+                causticGradient.addColorStop(0, 'rgba(200, 255, 255, 0.15)');
+                causticGradient.addColorStop(1, 'rgba(200, 255, 255, 0)');
+
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = causticGradient;
+                ctx.fill();
+            }
+            ctx.globalCompositeOperation = 'source-over';
+
+            time++;
+        }
+
+        function animate() {
+            drawOcean();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
 </body>
+
 </html>
