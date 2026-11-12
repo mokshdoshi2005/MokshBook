@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adinath Trading Co. | Polymer Engineering & Fine Granules Portal (9 Card Styles)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            oat: '#FDFBF7',
+                            champagne: '#F4EFE6',
+                            latte: '#E8DFD1',
+                            sand: '#D4C5B0',
+                            bronze: '#8C7A6B',
+                            espresso: '#2C241E',
+                            gold: '#D4AF37',
+                            goldlight: '#F3E5AB'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2C241E;
+        }
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .glass-beige {
+            background: rgba(244, 239, 230, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 197, 176, 0.4);
+        }
+        .card-perspective {
+            perspective: 1000px;
+        }
+        .business-card {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .business-card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F4EFE6;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D4C5B0;
+            border-radius: 4px;
+        }
+        .holo-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)), linear-gradient(45deg, #0f172a, #1e293b, #0f172a);
+        }
+        .holo-glimmer {
+            background: linear-gradient(115deg, transparent 20%, rgba(56, 189, 248, 0.25) 40%, rgba(236, 72, 153, 0.25) 60%, transparent 80%);
+        }
+        .stitch-border-outer {
+            border: 2px dashed #8C7A6B;
+        }
+        .stitch-border-inner {
+            border: 1px dotted #D4AF37;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-sand selection:text-brand-espresso custom-scrollbar">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-espresso text-brand-champagne text-xs py-2.5 px-4 border-b border-brand-gold/30">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-4 text-brand-sand">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-award text-brand-gold"></i> ISO 9001:2015 Certified Polymer Partner</span>
+                <span class="hidden md:inline text-brand-bronze">|</span>
+                <span class="hidden md:inline" id="top-address-display"><i class="fa-solid fa-location-dot text-brand-sand mr-1"></i> Sanwer Road Industrial Area, Indore, MP</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:" id="top-phone-link" class="hover:text-brand-gold transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-phone text-brand-gold text-[10px]"></i> <span id="top-phone-display">+91 90098 62238</span>
+                </a>
+                <span class="text-brand-bronze">|</span>
+                <a href="#" id="top-whatsapp-link" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp Concierge
+                </a>
+                <span class="text-brand-bronze">|</span>
+                <button onclick="toggleJsonInspector()" class="bg-brand-gold/20 text-brand-goldlight px-2 py-0.5 rounded border border-brand-gold/40 hover:bg-brand-gold/40 text-[10px] uppercase font-mono tracking-wider">
+                    <i class="fa-solid fa-code"></i> Live JSON Data Ref
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 glass-beige border-b border-brand-sand/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-lg bg-brand-espresso p-0.5 shadow-md flex items-center justify-center border border-brand-gold/40">
+                        <i class="fa-solid fa-cubes-stacked text-xl text-brand-gold"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-serif font-bold tracking-tight text-brand-espresso block uppercase" id="nav-brand-name">ADINATH TRADING CO.</span>
+                        <span class="text-[9px] font-mono tracking-widest text-brand-bronze uppercase block" id="nav-brand-tagline">POLYMER ENGINEERING & FINE GRANULES</span>
+                    </div>
+                </div>
+
+                <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-brand-espresso">
+                    <a href="#hero" class="hover:text-brand-gold transition-colors py-1">Home</a>
+                    <a href="#catalog" class="hover:text-brand-gold transition-colors py-1">Polymer Portfolio</a>
+                    <a href="#estimator" class="hover:text-brand-gold transition-colors py-1">Bulk Pricing Calc</a>
+                    <a href="#cards-section" class="hover:text-brand-gold transition-colors py-1 text-brand-bronze flex items-center gap-1.5">
+                        <i class="fa-solid fa-id-card text-brand-gold"></i> CEO Business Cards (9 Styles)
+                    </a>
+                    <a href="#contact-sec" class="hover:text-brand-gold transition-colors py-1">Location & Depot</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleRfqDrawer()" class="relative px-5 py-2.5 bg-brand-espresso hover:bg-black text-brand-champagne rounded-lg font-bold text-xs uppercase tracking-wider transition-all shadow-md border border-brand-gold/30 flex items-center gap-2">
+                        <i class="fa-solid fa-receipt text-brand-gold"></i>
+                        <span>RFQ Quote Cart</span>
+                        <span id="rfq-badge" class="bg-brand-gold text-brand-espresso font-mono font-bold rounded-full w-5 h-5 flex items-center justify-center text-[10px] hidden">0</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-brand-espresso">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-brand-sand/40 bg-brand-champagne px-4 py-4 space-y-3">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block text-brand-espresso font-semibold text-xs uppercase">Home</a>
+            <a href="#catalog" onclick="toggleMobileMenu()" class="block text-brand-espresso font-semibold text-xs uppercase">Polymer Portfolio</a>
+            <a href="#estimator" onclick="toggleMobileMenu()" class="block text-brand-espresso font-semibold text-xs uppercase">Bulk Pricing Calc</a>
+            <a href="#cards-section" onclick="toggleMobileMenu()" class="block text-brand-bronze font-semibold text-xs uppercase"><i class="fa-solid fa-id-card text-brand-gold mr-1"></i> CEO Cards (9 Styles)</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative py-20 lg:py-28 overflow-hidden bg-brand-oat border-b border-brand-sand/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-sand bg-brand-champagne text-brand-espresso text-xs font-semibold uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                        <span id="hero-badge-text">Direct Manufacturer & Verified Importer</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-espresso leading-tight">
+                        Engineered Polymer Solutions & Fine <span class="italic font-serif font-normal text-brand-bronze">Plastic Granules</span>
+                    </h1>
+
+                    <p class="text-brand-espresso/80 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed" id="hero-description">
+                        Supplying high-purity Polypropylene (PP), HDPE, LDPE, LLDPE, Engineering ABS, and Eco-Reprocessed granules engineered for injection molding, blow molding, extrusion, and film applications.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+                        <a href="#catalog" class="px-7 py-3.5 bg-brand-espresso hover:bg-black text-brand-champagne font-bold rounded-lg shadow-lg border border-brand-gold/30 transition-all text-xs uppercase tracking-wider flex items-center gap-2">
+                            <span>Explore Catalog</span>
+                            <i class="fa-solid fa-arrow-right text-brand-gold"></i>
+                        </a>
+                        <a href="#estimator" class="px-7 py-3.5 bg-brand-champagne hover:bg-brand-latte border border-brand-sand text-brand-espresso font-semibold rounded-lg transition-all text-xs uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-calculator text-brand-bronze"></i>
+                            <span>Calculate Bulk RFQ</span>
+                        </a>
+                    </div>
+
+                    <div class="pt-8 border-t border-brand-sand/40 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl font-serif font-bold text-brand-espresso" id="stat-tons">50,000+</div>
+                            <div class="text-[10px] font-mono text-brand-bronze uppercase tracking-wider">Metric Tons Supplied</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-serif font-bold text-brand-espresso">100%</div>
+                            <div class="text-[10px] font-mono text-brand-bronze uppercase tracking-wider">MFI Batch Tested</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-serif font-bold text-brand-espresso">24 HR</div>
+                            <div class="text-[10px] font-mono text-brand-bronze uppercase tracking-wider">Ex-Factory Dispatch</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-champagne border border-brand-sand p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-brand-sand/60 pb-4 mb-6">
+                            <span class="text-xs font-mono font-bold text-brand-espresso uppercase">LIVE STOCK FEED</span>
+                            <span class="text-[10px] bg-brand-gold/20 text-brand-espresso font-mono px-2 py-0.5 rounded border border-brand-gold/40">Sanwer Road Depot</span>
+                        </div>
+
+                        <div class="space-y-4" id="hero-stock-preview"></div>
+
+                        <div class="mt-6 pt-6 border-t border-brand-sand/60 text-center">
+                            <a href="#" id="hero-indiamart-link" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-espresso hover:text-brand-gold transition-colors">
+                                <i class="fa-solid fa-shield-halved text-brand-gold"></i> Verified IndiaMART Supplier Profile <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: DYNAMIC POLYMER CATALOG -->
+    <section id="catalog" class="py-20 bg-brand-champagne/40 border-b border-brand-sand/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-mono font-bold text-brand-bronze tracking-widest uppercase">ENGINEERING POLYMER SELECTION</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-espresso mt-1">Granules Catalog & Lab Specs</h2>
+                </div>
+                <div class="flex flex-wrap gap-2" id="catalog-category-filters"></div>
+            </div>
+            <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE BULK PRICE & FREIGHT ESTIMATOR -->
+    <section id="estimator" class="py-20 bg-brand-oat border-b border-brand-sand/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-champagne border border-brand-sand p-8 sm:p-12 rounded-2xl shadow-xl">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div>
+                            <span class="text-xs font-mono font-bold text-brand-bronze tracking-widest uppercase">WHOLESALE PRICING MATRIX</span>
+                            <h2 class="text-3xl font-serif font-bold text-brand-espresso mt-1">Bulk Granules Cost & Freight Estimator</h2>
+                            <p class="text-brand-espresso/70 text-xs mt-1">Configure polymer grade, tonnage, and destination state for real-time quotation generation.</p>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-brand-espresso mb-2">Polymer Material Grade</label>
+                                <select id="calc-material-select" onchange="calculatePrice()" class="w-full bg-brand-oat border border-brand-sand rounded-lg px-4 py-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-espresso font-medium"></select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-brand-espresso mb-2">Packaging Standard</label>
+                                <select id="calc-package-select" onchange="calculatePrice()" class="w-full bg-brand-oat border border-brand-sand rounded-lg px-4 py-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-espresso font-medium">
+                                    <option value="25kg">25kg Standard Woven Sacks</option>
+                                    <option value="jumbo">500kg Jumbo Bulk Sacks (Palletized)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-brand-espresso mb-2">
+                                <span>Order Quantity (Metric Tons)</span>
+                                <span class="text-brand-espresso font-mono font-bold"><span id="calc-volume-val">5</span> MT (<span id="calc-bags-val">200</span> Bags)</span>
+                            </div>
+                            <input type="range" id="calc-volume-slider" min="1" max="50" step="1" value="5" oninput="calculatePrice()" class="w-full h-2 bg-brand-sand rounded-lg appearance-none cursor-pointer accent-brand-espresso">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-espresso mb-2">Delivery Region / Logistics Hub</label>
+                            <select id="calc-state-select" onchange="calculatePrice()" class="w-full bg-brand-oat border border-brand-sand rounded-lg px-4 py-3 text-xs text-brand-espresso focus:outline-none focus:border-brand-espresso font-medium">
+                                <option value="mp">Madhya Pradesh (Local Ex-Factory Indore)</option>
+                                <option value="mh">Maharashtra (Mumbai / Pune / Nagpur)</option>
+                                <option value="gj">Gujarat (Ahmedabad / Surat / Rajkot)</option>
+                                <option value="dl">Delhi NCR & Haryana Hubs</option>
+                                <option value="rj">Rajasthan (Jaipur / Udaipur)</option>
+                                <option value="tn">South India Depots</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-brand-espresso text-brand-champagne p-8 rounded-xl border border-brand-gold/30 shadow-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between border-b border-brand-bronze/40 pb-4 mb-4">
+                                <span class="text-[11px] font-mono text-brand-gold uppercase">ESTIMATED PROFORMA</span>
+                                <span id="calc-discount-badge" class="text-[10px] bg-brand-gold/20 text-brand-goldlight px-2 py-0.5 rounded font-mono border border-brand-gold/30">Base Rate</span>
+                            </div>
+
+                            <div class="space-y-3 text-xs font-light">
+                                <div class="flex justify-between"><span class="text-brand-sand">Material Rate:</span><span class="font-mono text-brand-champagne font-bold" id="calc-base-rate">₹98 / kg</span></div>
+                                <div class="flex justify-between"><span class="text-brand-sand">Subtotal:</span><span class="font-mono text-brand-champagne font-bold" id="calc-subtotal">₹4,90,000</span></div>
+                                <div class="flex justify-between"><span class="text-brand-sand">Freight Est.:</span><span class="font-mono text-brand-gold" id="calc-freight">₹4,000</span></div>
+                                <div class="flex justify-between"><span class="text-brand-sand">GST (18%):</span><span class="font-mono text-brand-sand" id="calc-gst">₹88,920</span></div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-brand-bronze/40">
+                                <div class="text-[10px] text-brand-sand font-mono uppercase">Total Investment Estimate:</div>
+                                <div class="text-3xl font-serif font-bold text-brand-gold mt-1" id="calc-grand-total">₹5,82,920</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 space-y-2">
+                            <button onclick="addCalculatedToRfq()" class="w-full py-3 bg-brand-gold hover:bg-amber-400 text-brand-espresso font-bold rounded text-xs uppercase tracking-wider transition-all shadow">
+                                <i class="fa-solid fa-cart-plus mr-1"></i> Add Estimate to Quote Cart
+                            </button>
+                            <button onclick="sendWhatsAppQuote()" class="w-full py-3 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Send Quote to CEO WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: EXECUTIVE BUSINESS CARDS SHOWCASE (9 STYLES) -->
+    <section id="cards-section" class="py-20 bg-brand-champagne/40 border-b border-brand-sand/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-mono font-bold text-brand-bronze tracking-widest uppercase">EXECUTIVE BRAND IDENTITY COLLECTION</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-espresso mt-1">CEO & Leadership Business Cards (9 Styles)</h2>
+                <p class="text-xs text-brand-espresso/70 mt-2">All nine design directions dynamically pull from the central JSON reference data. Click any card to flip between Front and Back.</p>
+            </div>
+
+            <!-- Card Design Tabs (9 Styles) -->
+            <div class="flex justify-center gap-2 mb-10 flex-wrap max-w-5xl mx-auto">
+                <button onclick="switchCardTab(1)" id="card-tab-1" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-espresso text-brand-champagne shadow border border-brand-gold/30">1. Japanese Sumi Ink</button>
+                <button onclick="switchCardTab(2)" id="card-tab-2" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">2. Tactile Canvas</button>
+                <button onclick="switchCardTab(3)" id="card-tab-3" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">3. Eco-Botanical</button>
+                <button onclick="switchCardTab(4)" id="card-tab-4" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">4. Polymer Gradient</button>
+                <button onclick="switchCardTab(5)" id="card-tab-5" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">5. Liquid Gold Glass</button>
+                <button onclick="switchCardTab(6)" id="card-tab-6" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">6. Industrial Bronze</button>
+                <button onclick="switchCardTab(7)" id="card-tab-7" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">7. Embossed Letterpress</button>
+                <button onclick="switchCardTab(8)" id="card-tab-8" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand">8. AR Holographic Pass</button>
+                <button onclick="switchCardTab(9)" id="card-tab-9" class="card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand"><i class="fa-solid fa-scissors mr-1 text-brand-bronze"></i> 9. Artisan Cross-Stitch</button>
+            </div>
+
+            <!-- Card Display Container -->
+            <div class="max-w-md mx-auto">
+                
+                <!-- STYLE 1: Japanese Sumi Ink -->
+                <div id="card-view-1" class="card-perspective w-full h-[260px] cursor-pointer" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-[#F4F1EA] border border-[#D9D3C7] p-7 flex flex-col justify-between text-[#1A1A1A] shadow-2xl relative overflow-hidden">
+                            <div class="flex justify-between items-start z-10">
+                                <div><div class="text-xs font-serif tracking-[0.25em] uppercase text-[#555555]" id="card1-company">ADINATH TRADING CO.</div><div class="text-[9px] font-mono tracking-widest text-[#888888] uppercase" id="card1-tagline">POLYMER GRANULES</div></div>
+                                <span class="text-[8px] font-mono px-2 py-0.5 rounded border border-black/30 text-black uppercase">Wabi-Sabi Edition</span>
+                            </div>
+                            <div class="z-10"><div class="text-3xl font-serif font-normal text-black tracking-wider italic" id="card1-ceo-name">Sandeep Doshi</div><div class="text-xs text-[#666666] font-mono mt-0.5" id="card1-ceo-title">Chief Executive Officer</div></div>
+                            <div class="z-10 border-t border-[#D9D3C7] pt-3 flex justify-between items-end text-[10px] font-mono text-[#444444]">
+                                <div><div id="card1-phone">+91 90098 62238</div><div id="card1-email">ceo@adinathtrading.com</div></div>
+                                <div class="text-right text-[9px] text-[#777777]">Handmade Washi Texture</div>
+                            </div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-[#111111] border border-stone-800 p-7 flex flex-col justify-between text-stone-200 shadow-2xl">
+                            <div class="flex justify-between items-center text-[10px] font-mono text-stone-400"><span class="tracking-widest uppercase">SUMI INK SEALS</span><span>CLICK TO FLIP</span></div>
+                            <div class="text-xs font-serif italic leading-relaxed text-stone-300">"Raw purity in engineering polymer compounds. Crafted with exact density control."</div>
+                            <div class="border-t border-stone-800 pt-3 flex justify-between items-center text-[10px] font-mono">
+                                <div>GSTIN: <span id="card1-gst">23AAAAA0000A1Z5</span></div>
+                                <div class="w-8 h-8 bg-white p-0.5 rounded"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/kRWxEQthC3egGQH88" alt="QR" class="w-full h-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 2: Tactile Canvas -->
+                <div id="card-view-2" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-[#EBE5DA] border-2 border-dashed border-[#B8AA96] p-7 flex flex-col justify-between text-[#3A322B] shadow-2xl">
+                            <div class="flex justify-between items-center"><span class="text-xs font-mono font-bold tracking-widest text-[#7C6E5F]" id="card2-company">ADINATH TRADING CO.</span><span class="text-[9px] font-mono bg-[#D8CCC0] px-2 py-0.5 rounded">TEXTILE CANVA</span></div>
+                            <div><div class="text-2xl font-serif font-bold text-[#2A231D]" id="card2-ceo-name">Sandeep Doshi</div><div class="text-xs font-mono text-[#7C6E5F]" id="card2-ceo-title">Chief Executive Officer</div></div>
+                            <div class="border-t border-[#C5B7A6] pt-3 text-xs font-mono space-y-1"><div>TEL: <span id="card2-phone">+91 90098 62238</span></div><div>MAIL: <span id="card2-email">ceo@adinathtrading.com</span></div></div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-[#3A322B] border-2 border-dashed border-[#B8AA96] p-7 flex flex-col justify-between text-[#EBE5DA] shadow-2xl">
+                            <div class="text-xs font-mono text-[#B8AA96] tracking-widest uppercase">CANVA TEXTILE BACK</div>
+                            <div class="text-xs font-serif italic">"Woven sacks, geotextiles & raffia TQ polymer granule specialization."</div>
+                            <div class="text-[10px] font-mono text-[#B8AA96]">Sanwer Road Industrial Area, Indore (M.P.)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 3: Eco-Botanical -->
+                <div id="card-view-3" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-[#1B2E24] border border-[#3E5C49] p-7 flex flex-col justify-between text-[#E0EEDF] shadow-2xl">
+                            <div class="flex justify-between items-start"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span><span class="text-xs font-mono font-bold tracking-widest uppercase text-emerald-300" id="card3-company">ADINATH TRADING CO.</span></div><span class="text-[9px] font-mono bg-emerald-900/80 text-emerald-200 border border-emerald-700 px-2 py-0.5 rounded">ECO-REPROCESSED</span></div>
+                            <div><div class="text-2xl font-serif font-bold text-white" id="card3-ceo-name">Sandeep Doshi</div><div class="text-xs text-emerald-300 font-mono" id="card3-ceo-title">Chief Executive Officer</div></div>
+                            <div class="border-t border-emerald-800/80 pt-3 text-[11px] font-mono text-emerald-200 flex justify-between"><div><span id="card3-phone">+91 90098 62238</span></div><div id="card3-email">ceo@adinathtrading.com</div></div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-[#E8F0E9] border border-[#A5C4AB] p-7 flex flex-col justify-between text-[#1B2E24] shadow-2xl">
+                            <div class="text-xs font-mono font-bold text-emerald-800 uppercase">SUSTAINABLE POLYMER RECYCLING</div>
+                            <p class="text-xs font-serif leading-relaxed">Triple-melt filtered eco-reprocessed granules minimizing environmental footprint while maintaining structural integrity.</p>
+                            <div class="text-[10px] font-mono text-emerald-700">GSTIN: <span id="card3-gst">23AAAAA0000A1Z5</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 4: Polymer Gradient -->
+                <div id="card-view-4" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 border border-indigo-500/30 p-7 flex flex-col justify-between text-white shadow-2xl">
+                            <div class="flex justify-between items-center"><div class="text-xs font-mono font-bold tracking-widest text-indigo-300" id="card4-company">ADINATH TRADING CO.</div><span class="text-[9px] font-mono bg-indigo-500/20 text-indigo-200 border border-indigo-400/30 px-2 py-0.5 rounded">MODERN POLYMER</span></div>
+                            <div><div class="text-2xl font-serif font-bold text-white" id="card4-ceo-name">Sandeep Doshi</div><div class="text-xs text-indigo-300 font-mono" id="card4-ceo-title">Chief Executive Officer</div></div>
+                            <div class="border-t border-indigo-500/30 pt-3 text-[11px] font-mono text-indigo-200 space-y-1"><div><span id="card4-phone">+91 90098 62238</span></div><div><span id="card4-email">ceo@adinathtrading.com</span></div></div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-slate-950 border border-indigo-500/30 p-7 flex flex-col justify-between text-indigo-100 shadow-2xl">
+                            <div class="text-xs font-mono text-indigo-400 uppercase tracking-widest">POLYMER ENGINEERING PORTFOLIO</div>
+                            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono"><div class="bg-indigo-950/60 p-2 rounded">PP Injection</div><div class="bg-indigo-950/60 p-2 rounded">HDPE Blow</div></div>
+                            <div class="text-[10px] font-mono text-indigo-400">Indore Depot Ex-Factory Dispatch</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 5: Liquid Gold Glass -->
+                <div id="card-view-5" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-slate-900/90 backdrop-blur-xl border border-amber-500/40 p-7 flex flex-col justify-between text-amber-100 shadow-2xl">
+                            <div class="flex justify-between items-center z-10"><span class="text-xs font-mono font-bold tracking-widest text-amber-300" id="card5-company">ADINATH TRADING CO.</span><span class="text-[9px] font-mono bg-amber-500/20 text-amber-200 border border-amber-400/40 px-2 py-0.5 rounded">GLASSMORPHIC</span></div>
+                            <div class="z-10"><div class="text-2xl font-serif font-bold text-amber-200" id="card5-ceo-name">Sandeep Doshi</div><div class="text-xs text-amber-400 font-mono" id="card5-ceo-title">Chief Executive Officer</div></div>
+                            <div class="z-10 border-t border-amber-500/30 pt-3 text-[11px] font-mono text-amber-200 space-y-1"><div>Ph: <span id="card5-phone">+91 90098 62238</span></div><div>Email: <span id="card5-email">ceo@adinathtrading.com</span></div></div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-slate-950 border border-amber-500/40 p-7 flex flex-col justify-between text-amber-100 shadow-2xl">
+                            <div class="text-xs font-mono text-amber-400 uppercase tracking-widest">LIQUID GOLD FINISH SPEC</div>
+                            <p class="text-xs font-serif text-amber-200/90 leading-relaxed italic">"Premium translucent polymer structure finished with liquid gold foil accents."</p>
+                            <div class="flex justify-between items-end border-t border-amber-500/30 pt-3 text-[10px] font-mono">
+                                <div>GSTIN: <span id="card5-gst">23AAAAA0000A1Z5</span></div>
+                                <div class="w-8 h-8 bg-amber-100 p-0.5 rounded"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/kRWxEQthC3egGQH88" alt="QR" class="w-full h-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 6: Industrial Bronze -->
+                <div id="card-view-6" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-brand-espresso border border-brand-gold/40 p-6 flex flex-col justify-between text-brand-champagne shadow-2xl">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded bg-brand-gold/20 border border-brand-gold/50 flex items-center justify-center"><i class="fa-solid fa-cubes-stacked text-brand-gold text-xs"></i></div>
+                                    <div><div class="text-xs font-serif font-bold tracking-widest uppercase text-white" id="card6-company">ADINATH TRADING CO.</div><div class="text-[8px] font-mono tracking-widest text-brand-gold uppercase">Polymer Granules</div></div>
+                                </div>
+                                <span class="text-[8px] font-mono px-2 py-0.5 rounded bg-brand-gold/20 text-brand-goldlight border border-brand-gold/30">INDUSTRIAL BRONZE</span>
+                            </div>
+                            <div><div class="text-2xl font-serif font-bold text-white tracking-wide" id="card6-ceo-name">Sandeep Doshi</div><div class="text-xs text-brand-sand font-light" id="card6-ceo-title">Chief Executive Officer</div></div>
+                            <div class="border-t border-brand-bronze/40 pt-3 grid grid-cols-2 gap-2 text-[10px] text-brand-sand font-mono">
+                                <div><span id="card6-phone">+91 90098 62238</span></div>
+                                <div><span id="card6-email">ceo@adinathtrading.com</span></div>
+                            </div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-brand-champagne border border-brand-sand p-6 flex flex-col justify-between text-brand-espresso shadow-2xl">
+                            <div class="flex justify-between items-center"><span class="text-[10px] font-mono font-bold text-brand-bronze uppercase">PRODUCT SPECIALIZATIONS</span><span class="text-[9px] font-mono text-brand-sand">CLICK TO FLIP</span></div>
+                            <div class="grid grid-cols-2 gap-2 text-xs font-medium"><div>PP Injection & Raffia</div><div>HDPE Blow & Extrusion</div></div>
+                            <div class="flex justify-between items-end border-t border-brand-sand pt-3">
+                                <div class="text-[9px] text-brand-espresso/70"><div class="font-bold uppercase">ADINATH TRADING CO.</div><div>Sanwer Road, Indore</div></div>
+                                <div class="w-10 h-10 bg-white p-1 rounded border border-brand-sand"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/kRWxEQthC3egGQH88" alt="QR" class="w-full h-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 7: Embossed Letterpress -->
+                <div id="card-view-7" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-[#FAF8F5] border border-[#E5DFD5] p-8 flex flex-col justify-between text-[#222222] shadow-2xl">
+                            <div>
+                                <div class="text-xs font-serif uppercase tracking-[0.2em] text-[#8C7A6B]" id="card7-company">ADINATH TRADING CO.</div>
+                                <div class="text-2xl font-serif font-bold text-[#1A1A1A] mt-4" id="card7-ceo-name">Sandeep Doshi</div>
+                                <div class="text-xs text-[#8C7A6B] font-mono uppercase tracking-wider" id="card7-ceo-title">Chief Executive Officer</div>
+                            </div>
+                            <div class="space-y-1 text-xs text-[#333333] font-light border-l-2 border-[#D4AF37] pl-3">
+                                <div><strong>M:</strong> <span id="card7-phone">+91 90098 62238</span></div>
+                                <div><strong>E:</strong> <span id="card7-email">ceo@adinathtrading.com</span></div>
+                            </div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-[#EFECE6] border border-[#DCD6CA] p-8 flex flex-col justify-between text-[#222222] shadow-2xl">
+                            <div class="text-xs font-serif italic text-[#444444]">"Precision polymer raw materials tailored for high-output industrial molding across India."</div>
+                            <div class="text-[10px] font-mono text-[#8C7A6B]">GSTIN: <span id="card7-gst">23AAAAA0000A1Z5</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 8: AR Holographic Pass -->
+                <div id="card-view-8" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl holo-card border border-sky-400/40 p-7 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden">
+                            <div class="absolute inset-0 holo-glimmer pointer-events-none opacity-60"></div>
+                            <div class="flex justify-between items-start z-10">
+                                <div><div class="text-xs font-mono font-bold tracking-widest text-sky-400" id="card8-company">ADINATH TRADING CO.</div><div class="text-[8px] font-mono text-slate-400 uppercase">AR DIGITAL PASS</div></div>
+                                <span class="text-[8px] font-mono bg-sky-500/20 text-sky-300 border border-sky-400/40 px-2 py-0.5 rounded">HOLOGRAPHIC</span>
+                            </div>
+                            <div class="z-10"><div class="text-2xl font-serif font-bold text-sky-100" id="card8-ceo-name">Sandeep Doshi</div><div class="text-xs text-sky-300 font-mono" id="card8-ceo-title">Chief Executive Officer</div></div>
+                            <div class="z-10 border-t border-sky-500/30 pt-3 flex justify-between items-end text-[10px] font-mono text-sky-200">
+                                <div><span id="card8-phone">+91 90098 62238</span><div id="card8-email">ceo@adinathtrading.com</div></div>
+                                <div class="text-[9px] text-sky-400 font-mono">VERIFIED KEY #8821</div>
+                            </div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-slate-950 border border-sky-400/40 p-7 flex flex-col justify-between text-sky-100 shadow-2xl">
+                            <div class="text-xs font-mono text-sky-400 uppercase tracking-widest">AR PASS SPECIFICATIONS</div>
+                            <div class="text-xs font-mono text-slate-300">Scan card to load 3D polymer granule molecular structure & live ex-factory stock telemetry.</div>
+                            <div class="flex justify-between items-end border-t border-sky-500/30 pt-3 text-[10px] font-mono">
+                                <div>GSTIN: <span id="card8-gst">23AAAAA0000A1Z5</span></div>
+                                <div class="w-8 h-8 bg-white p-0.5 rounded"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/kRWxEQthC3egGQH88" alt="QR" class="w-full h-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STYLE 9: Artisan Cross-Stitch -->
+                <div id="card-view-9" class="card-perspective w-full h-[260px] cursor-pointer hidden" onclick="toggleCardFlip(this)">
+                    <div class="business-card w-full h-full relative rounded-xl shadow-2xl">
+                        <div class="card-front absolute inset-0 rounded-xl bg-[#FAF7F2] p-4 flex flex-col justify-between text-[#2C241E] shadow-2xl border border-[#E5DFD5]">
+                            <div class="w-full h-full rounded-lg stitch-border-outer p-1 flex flex-col justify-between">
+                                <div class="w-full h-full rounded stitch-border-inner p-4 flex flex-col justify-between">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-xmark text-brand-bronze text-[10px]"></i><span class="text-xs font-mono font-bold tracking-widest uppercase text-brand-espresso" id="card9-company">ADINATH TRADING CO.</span></div>
+                                        <span class="text-[8px] font-mono bg-[#E8DFD1] text-[#2C241E] px-2 py-0.5 rounded uppercase font-semibold">Cross-Stitch Edition</span>
+                                    </div>
+                                    <div><div class="text-2xl font-serif font-bold text-brand-espresso tracking-wide" id="card9-ceo-name">Sandeep Doshi</div><div class="text-xs text-brand-bronze font-mono uppercase tracking-wider" id="card9-ceo-title">Chief Executive Officer</div></div>
+                                    <div class="border-t border-dashed border-[#D4C5B0] pt-2 flex justify-between items-end text-[10px] font-mono text-brand-bronze">
+                                        <div><div><span id="card9-phone">+91 90098 62238</span></div><div><span id="card9-email">ceo@adinathtrading.com</span></div></div>
+                                        <div class="text-[9px] text-[#8C7A6B] italic font-serif">Woven Thread Finish</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back absolute inset-0 rounded-xl bg-[#2C241E] p-4 flex flex-col justify-between text-brand-champagne shadow-2xl border border-brand-gold/40">
+                            <div class="w-full h-full rounded-lg border-2 border-dashed border-brand-gold/50 p-1 flex flex-col justify-between">
+                                <div class="w-full h-full rounded border border-dotted border-brand-sand/40 p-4 flex flex-col justify-between">
+                                    <div class="flex justify-between items-center text-[10px] font-mono text-brand-gold">
+                                        <span class="tracking-widest uppercase"><i class="fa-solid fa-layer-group mr-1"></i> POLYMER WEAVE SPECS</span>
+                                        <span class="text-brand-sand/60">FLIP</span>
+                                    </div>
+                                    <div class="text-xs font-serif italic text-brand-sand leading-relaxed">"Tailored woven sack compounds, FIBC raffia tapes, and high-tenacity polypropylene granules."</div>
+                                    <div class="flex justify-between items-end border-t border-dashed border-brand-bronze/60 pt-2 text-[10px] font-mono text-brand-sand">
+                                        <div>GSTIN: <span id="card9-gst">23AAAAA0000A1Z5</span></div>
+                                        <div class="w-8 h-8 bg-white p-0.5 rounded flex-shrink-0"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/kRWxEQthC3egGQH88" alt="QR" class="w-full h-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & DEPOT SECTION -->
+    <section id="contact-sec" class="py-20 bg-brand-oat">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-mono font-bold text-brand-bronze tracking-widest uppercase">EX-FACTORY WAREHOUSE DEPOT</span>
+                    <h2 class="text-3xl font-serif font-bold text-brand-espresso">Visit Our Facility in Indore</h2>
+                    <p class="text-brand-espresso/80 text-xs leading-relaxed" id="depot-desc">
+                        Located at Sanwer Road Industrial Area, Indore. Clients are invited to inspect raw material samples, review laboratory MFI reports, and manage ex-factory dispatches.
+                    </p>
+                    <div class="space-y-3 text-xs">
+                        <div class="p-4 bg-brand-champagne border border-brand-sand rounded-lg flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-gold text-lg mt-0.5"></i>
+                            <div><strong class="text-brand-espresso block">Factory Address</strong><span class="text-brand-espresso/70" id="contact-address-full">136, C-1, Sector F, Sanwer Road Industrial Area, Indore, Madhya Pradesh 452015</span></div>
+                        </div>
+                        <div class="p-4 bg-brand-champagne border border-brand-sand rounded-lg flex items-start gap-3">
+                            <i class="fa-solid fa-id-card-clip text-brand-gold text-lg mt-0.5"></i>
+                            <div><strong class="text-brand-espresso block">Tax & Registration</strong><span class="text-brand-espresso/70">GSTIN: <span id="contact-gstin">23AAAAA0000A1Z5</span> | ISO 9001:2015 Registered</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="rounded-2xl overflow-hidden border border-brand-sand shadow-xl h-[380px] bg-brand-champagne relative">
+                        <iframe title="Adinath Trading Location Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.167812903253!2d75.8340!3d22.7590!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39630344eff620e3%3A0x485852a83434943b!2sSanwer%20Road%20Industrial%20Area%2C%20Indore%2C%20Madhya%20Pradesh%20452015!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" class="w-full h-full border-0 opacity-90" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-espresso text-brand-champagne py-12 border-t border-brand-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs">
+            <span class="font-serif text-lg font-bold block text-white" id="footer-company">ADINATH TRADING CO.</span>
+            <p class="text-brand-sand text-[11px] mt-1">© 2026 Adinath Trading Company. All Rights Reserved. 9 Card Styles Portal.</p>
+        </div>
+    </footer>
+
+    <!-- RFQ DRAWER -->
+    <div id="rfq-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-brand-champagne border-l border-brand-sand shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-brand-sand flex justify-between items-center bg-brand-oat">
+            <h3 class="text-sm font-bold text-brand-espresso uppercase tracking-wider">RFQ Quote Cart</h3>
+            <button onclick="toggleRfqDrawer(false)"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+        <div id="rfq-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+        <div class="p-6 border-t border-brand-sand bg-brand-oat">
+            <button onclick="dispatchRfqWhatsApp()" class="w-full py-3 bg-emerald-700 text-white font-bold rounded text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Send RFQ via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- TDS MODAL -->
+    <div id="tds-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-brand-oat border border-brand-sand rounded-xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeTdsModal()" class="absolute top-4 right-4"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 id="tds-modal-title" class="text-sm font-bold text-brand-espresso mb-4">Technical Data Sheet</h3>
+            <div id="tds-modal-content" class="space-y-3 text-xs text-brand-espresso"></div>
+        </div>
+    </div>
+
+    <!-- JSON INSPECTOR -->
+    <div id="json-inspector-drawer" class="fixed inset-y-0 left-0 w-full max-w-lg bg-brand-espresso text-brand-champagne shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col border-r border-brand-gold/40">
+        <div class="p-4 border-b border-brand-gold/30 flex justify-between items-center bg-black/40">
+            <h3 class="text-xs font-mono font-bold text-brand-goldlight uppercase tracking-wider">APP_CONFIG Reference</h3>
+            <button onclick="toggleJsonInspector(false)"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+        <div class="p-4 flex-1 flex flex-col">
+            <textarea id="json-editor-textarea" class="w-full flex-1 bg-black/80 border border-brand-gold/30 rounded p-3 text-[11px] font-mono text-emerald-400 focus:outline-none custom-scrollbar"></textarea>
+        </div>
+        <div class="p-4 border-t border-brand-gold/30 bg-black/40 flex justify-between items-center">
+            <button onclick="resetJsonConfig()" class="px-3 py-2 bg-slate-800 text-slate-300 text-xs font-mono rounded">Reset</button>
+            <button onclick="applyJsonChanges()" class="px-5 py-2 bg-brand-gold text-brand-espresso font-bold text-xs uppercase rounded">Apply & Render</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        const DEFAULT_APP_CONFIG = {
+            "company": {
+                "name": "Adinath Trading Co.",
+                "tagline": "Polymer Engineering & Fine Granules",
+                "phone": "+91 90098 62238",
+                "whatsapp": "919009862238",
+                "email": "info@adinathtrading.com",
+                "address": "136, C-1, Sector F, Sanwer Road Industrial Area, Indore, Madhya Pradesh 452015",
+                "gstin": "23AAAAA0000A1Z5",
+                "indiamart_url": "https://www.indiamart.com/adinathtradingcompany/"
+            },
+            "ceo": {
+                "name": "Sandeep Doshi",
+                "designation": "Chief Executive Officer & Founder",
+                "phone": "+91 90098 62238",
+                "email": "ceo@adinathtrading.com"
+            },
+            "currency": { "symbol": "₹", "gst_rate": 0.18 },
+            "pricing_rules": {
+                "freight_per_mt": { "mp": 800, "mh": 1500, "gj": 1400, "dl": 1600, "rj": 1200, "tn": 2200 },
+                "volume_discounts": [{ "min_mt": 10, "discount_per_kg": 2 }, { "min_mt": 25, "discount_per_kg": 4 }]
+            },
+            "products": [
+                {
+                    "id": "pp-inj-01", "name": "Polypropylene (PP) Injection Grade", "category": "PP", "grade": "Virgin Prime 100%", "mfi": "12 - 25 g/10min", "density": "0.905 g/cm³", "color": "Natural Translucent", "applications": "Automotive trims, consumer plasticware, caps & closures.", "packaging": "25kg Woven Bags", "price_per_kg": 98,
+                    "tds": { "tensile_yield": "34 MPa", "flexural_modulus": "1450 MPa", "izod_impact": "3.5 kJ/m²", "melting_point": "165°C" }
+                },
+                {
+                    "id": "pp-raffia-02", "name": "PP Raffia TQ Grade Granules", "category": "PP", "grade": "High Tenacity Tape", "mfi": "3.0 - 4.5 g/10min", "density": "0.908 g/cm³", "color": "Natural White", "applications": "FIBC jumbo bags, woven sacks, agricultural ropes.", "packaging": "25kg Woven Bags", "price_per_kg": 95,
+                    "tds": { "tensile_yield": "36 MPa", "flexural_modulus": "1500 MPa", "izod_impact": "4.0 kJ/m²", "melting_point": "168°C" }
+                },
+                {
+                    "id": "hdpe-blow-03", "name": "HDPE Blow Molding Granules", "category": "HDPE", "grade": "Virgin Prime High ESCR", "mfi": "0.3 - 0.8 g/10min", "density": "0.955 g/cm³", "color": "Milky White", "applications": "Lubricant bottles, chemical drums, jerry cans.", "packaging": "25kg Woven Bags", "price_per_kg": 104,
+                    "tds": { "tensile_yield": "28 MPa", "flexural_modulus": "1200 MPa", "izod_impact": "10 kJ/m²", "melting_point": "132°C" }
+                },
+                {
+                    "id": "recycled-pp-06", "name": "Reprocessed PP Black Granules", "category": "RECYCLED", "grade": "Triple Melt Filtered Eco", "mfi": "8 - 14 g/10min", "density": "0.915 g/cm³", "color": "Deep Gloss Black", "applications": "Plastic pallets, flower pots, battery casings.", "packaging": "25kg Woven Bags", "price_per_kg": 64,
+                    "tds": { "tensile_yield": "26 MPa", "flexural_modulus": "1100 MPa", "izod_impact": "3.0 kJ/m²", "melting_point": "162°C" }
+                }
+            ]
+        };
+
+        let APP_CONFIG = JSON.parse(JSON.stringify(DEFAULT_APP_CONFIG));
+        let rfqCart = [];
+
+        function renderAppFromConfig() {
+            document.getElementById('top-address-display').innerHTML = `<i class="fa-solid fa-location-dot text-brand-sand mr-1"></i> ${APP_CONFIG.company.address}`;
+            document.getElementById('top-phone-display').innerText = APP_CONFIG.company.phone;
+            document.getElementById('top-phone-link').href = `tel:${APP_CONFIG.company.phone}`;
+            document.getElementById('top-whatsapp-link').href = `https://wa.me/${APP_CONFIG.company.whatsapp}`;
+            document.getElementById('nav-brand-name').innerText = APP_CONFIG.company.name;
+            document.getElementById('nav-brand-tagline').innerText = APP_CONFIG.company.tagline;
+            document.getElementById('hero-indiamart-link').href = APP_CONFIG.company.indiamart_url;
+
+            const stockPreviewContainer = document.getElementById('hero-stock-preview');
+            stockPreviewContainer.innerHTML = APP_CONFIG.products.slice(0, 3).map(p => `
+                <div class="p-3.5 rounded-lg bg-brand-oat border border-brand-sand/60 flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-brand-espresso text-brand-gold font-bold font-mono flex items-center justify-center text-[10px]">${p.category}</div>
+                        <div><div class="font-bold text-brand-espresso">${p.name}</div><div class="text-[10px] text-brand-bronze font-mono">MFI: ${p.mfi} | Base: ${APP_CONFIG.currency.symbol}${p.price_per_kg}/kg</div></div>
+                    </div>
+                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">In Stock</span>
+                </div>
+            `).join('');
+
+            const categories = ['ALL', ...new Set(APP_CONFIG.products.map(p => p.category))];
+            document.getElementById('catalog-category-filters').innerHTML = categories.map((cat, i) => `
+                <button onclick="filterCatalog('${cat}', this)" class="catalog-filter-btn px-4 py-2 rounded text-xs font-bold transition-all ${i === 0 ? 'bg-brand-espresso text-brand-champagne' : 'bg-brand-champagne text-brand-espresso border border-brand-sand'}">${cat}</button>
+            `).join('');
+
+            renderCatalogGrid(APP_CONFIG.products);
+
+            const matSelect = document.getElementById('calc-material-select');
+            matSelect.innerHTML = APP_CONFIG.products.map(p => `<option value="${p.id}">${p.name} (${APP_CONFIG.currency.symbol}${p.price_per_kg}/kg)</option>`).join('');
+
+            renderBusinessCards();
+            calculatePrice();
+        }
+
+        function renderCatalogGrid(items) {
+            const container = document.getElementById('product-grid');
+            container.innerHTML = items.map(p => `
+                <div class="bg-brand-oat border border-brand-sand rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-brand-champagne text-brand-espresso border border-brand-sand">${p.category}</span>
+                            <span class="text-xs font-mono font-bold text-brand-espresso">${APP_CONFIG.currency.symbol}${p.price_per_kg} / kg</span>
+                        </div>
+                        <h3 class="text-base font-serif font-bold text-brand-espresso mb-1">${p.name}</h3>
+                        <p class="text-xs text-brand-espresso/70 mb-4 font-light leading-relaxed">${p.applications}</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-brand-sand/40">
+                        <button onclick="addToRfq('${p.id}')" class="w-full py-2 bg-brand-espresso hover:bg-black text-brand-champagne font-bold text-xs uppercase rounded flex items-center justify-center gap-1.5"><i class="fa-solid fa-plus text-brand-gold"></i> Add to Quote Cart</button>
+                        <button onclick="openTdsModal('${p.id}')" class="w-full py-1.5 text-brand-bronze hover:text-brand-espresso text-[11px] font-semibold flex items-center justify-center gap-1"><i class="fa-solid fa-file-lines text-brand-gold"></i> View Spec Sheet (TDS)</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCatalog(category, btnElement) {
+            document.querySelectorAll('.catalog-filter-btn').forEach(b => {
+                b.classList.remove('bg-brand-espresso', 'text-brand-champagne');
+                b.classList.add('bg-brand-champagne', 'text-brand-espresso', 'border', 'border-brand-sand');
+            });
+            btnElement.classList.remove('bg-brand-champagne', 'border', 'border-brand-sand');
+            btnElement.classList.add('bg-brand-espresso', 'text-brand-champagne');
+            renderCatalogGrid(category === 'ALL' ? APP_CONFIG.products : APP_CONFIG.products.filter(p => p.category === category));
+        }
+
+        function renderBusinessCards() {
+            for (let i = 1; i <= 9; i++) {
+                const comp = document.getElementById(`card${i}-company`); if (comp) comp.innerText = APP_CONFIG.company.name;
+                const name = document.getElementById(`card${i}-ceo-name`); if (name) name.innerText = APP_CONFIG.ceo.name;
+                const title = document.getElementById(`card${i}-ceo-title`); if (title) title.innerText = APP_CONFIG.ceo.designation;
+                const phone = document.getElementById(`card${i}-phone`); if (phone) phone.innerText = APP_CONFIG.ceo.phone;
+                const email = document.getElementById(`card${i}-email`); if (email) email.innerText = APP_CONFIG.ceo.email;
+                const gst = document.getElementById(`card${i}-gst`); if (gst) gst.innerText = APP_CONFIG.company.gstin;
+                const tag = document.getElementById(`card${i}-tagline`); if (tag) tag.innerText = APP_CONFIG.company.tagline;
+            }
+        }
+
+        function calculatePrice() {
+            const materialId = document.getElementById('calc-material-select').value;
+            const volumeMT = parseInt(document.getElementById('calc-volume-slider').value);
+            const state = document.getElementById('calc-state-select').value;
+            const product = APP_CONFIG.products.find(p => p.id === materialId) || APP_CONFIG.products[0];
+            let baseRatePerKg = product.price_per_kg;
+
+            let discountPerKg = 0;
+            APP_CONFIG.pricing_rules.volume_discounts.forEach(tier => { if (volumeMT >= tier.min_mt) discountPerKg = tier.discount_per_kg; });
+
+            const finalRatePerKg = baseRatePerKg - discountPerKg;
+            const subtotal = finalRatePerKg * volumeMT * 1000;
+            const freightTotal = (APP_CONFIG.pricing_rules.freight_per_mt[state] || 1500) * volumeMT;
+            const gstTotal = Math.round((subtotal + freightTotal) * APP_CONFIG.currency.gst_rate);
+            const grandTotal = subtotal + freightTotal + gstTotal;
+
+            document.getElementById('calc-volume-val').innerText = volumeMT;
+            document.getElementById('calc-bags-val').innerText = volumeMT * 40;
+            document.getElementById('calc-base-rate').innerText = `${APP_CONFIG.currency.symbol}${finalRatePerKg} / kg`;
+            document.getElementById('calc-subtotal').innerText = APP_CONFIG.currency.symbol + subtotal.toLocaleString('en-IN');
+            document.getElementById('calc-freight').innerText = APP_CONFIG.currency.symbol + freightTotal.toLocaleString('en-IN');
+            document.getElementById('calc-gst').innerText = APP_CONFIG.currency.symbol + gstTotal.toLocaleString('en-IN');
+            document.getElementById('calc-grand-total').innerText = APP_CONFIG.currency.symbol + grandTotal.toLocaleString('en-IN');
+        }
+
+        function addToRfq(productId) {
+            const p = APP_CONFIG.products.find(item => item.id === productId);
+            if (!p) return;
+            const existing = rfqCart.find(i => i.id === productId);
+            if (existing) existing.qty += 1; else rfqCart.push({ ...p, qty: 1 });
+            updateRfqUI();
+            toggleRfqDrawer(true);
+        }
+
+        function addCalculatedToRfq() {
+            const materialId = document.getElementById('calc-material-select').value;
+            const product = APP_CONFIG.products.find(p => p.id === materialId) || APP_CONFIG.products[0];
+            const volumeMT = document.getElementById('calc-volume-slider').value;
+            const grandTotal = document.getElementById('calc-grand-total').innerText;
+            rfqCart.push({ id: 'calc-' + Date.now(), name: `Bulk Order: ${product.name}`, grade: `${volumeMT} MT Est. Total: ${grandTotal}`, qty: 1 });
+            updateRfqUI();
+            toggleRfqDrawer(true);
+        }
+
+        function updateRfqUI() {
+            const badge = document.getElementById('rfq-badge');
+            const container = document.getElementById('rfq-items-container');
+            badge.innerText = rfqCart.length;
+            if (rfqCart.length > 0) badge.classList.remove('hidden'); else badge.classList.add('hidden');
+            if (rfqCart.length === 0) { container.innerHTML = `<div class="text-center text-brand-bronze py-12 text-xs font-mono">Cart is empty.</div>`; return; }
+            container.innerHTML = rfqCart.map((item, idx) => `
+                <div class="p-4 rounded bg-brand-oat border border-brand-sand flex justify-between items-center text-xs">
+                    <div><div class="font-bold text-brand-espresso">${item.name}</div><div class="text-brand-bronze text-[10px] font-mono mt-0.5">${item.grade}</div></div>
+                    <button onclick="removeFromRfq(${idx})" class="text-red-600"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        function removeFromRfq(idx) { rfqCart.splice(idx, 1); updateRfqUI(); }
+        function toggleRfqDrawer(open) { const d = document.getElementById('rfq-drawer'); d.classList.toggle('translate-x-full', open === false); if (open === true) d.classList.remove('translate-x-full'); }
+
+        function dispatchRfqWhatsApp() {
+            if (rfqCart.length === 0) return alert('Quote Cart is empty.');
+            let msg = `Hello ${APP_CONFIG.ceo.name}, request official quote for:\n`;
+            rfqCart.forEach((item, i) => { msg += `${i + 1}. ${item.name} (${item.grade})\n`; });
+            window.open(`https://wa.me/${APP_CONFIG.company.whatsapp}?text=` + encodeURIComponent(msg), '_blank');
+        }
+
+        function sendWhatsAppQuote() {
+            const matId = document.getElementById('calc-material-select').value;
+            const product = APP_CONFIG.products.find(p => p.id === matId) || APP_CONFIG.products[0];
+            const volumeMT = document.getElementById('calc-volume-slider').value;
+            const grandTotal = document.getElementById('calc-grand-total').innerText;
+            const msg = `Hello ${APP_CONFIG.ceo.name}, calculated bulk estimate for ${product.name} - ${volumeMT} MT. Total: ${grandTotal}.`;
+            window.open(`https://wa.me/${APP_CONFIG.company.whatsapp}?text=` + encodeURIComponent(msg), '_blank');
+        }
+
+        function openTdsModal(id) {
+            const p = APP_CONFIG.products.find(item => item.id === id);
+            if (!p) return;
+            document.getElementById('tds-modal-title').innerText = `${p.name} (TDS)`;
+            document.getElementById('tds-modal-content').innerHTML = `
+                <div class="p-3 bg-brand-champagne rounded border border-brand-sand space-y-1 font-mono text-[11px]">
+                    <div class="flex justify-between"><span>Grade:</span> <strong>${p.grade}</strong></div>
+                    <div class="flex justify-between"><span>MFI Rate:</span> <strong>${p.mfi}</strong></div>
+                    <div class="flex justify-between"><span>Density:</span> <strong>${p.density}</strong></div>
+                </div>
+                <div class="p-3 bg-brand-champagne rounded border border-brand-sand space-y-1 font-mono text-[11px]">
+                    <div class="flex justify-between"><span>Tensile Yield:</span> <strong>${p.tds.tensile_yield}</strong></div>
+                    <div class="flex justify-between"><span>Flexural Modulus:</span> <strong>${p.tds.flexural_modulus}</strong></div>
+                    <div class="flex justify-between"><span>Izod Impact:</span> <strong>${p.tds.izod_impact}</strong></div>
+                </div>`;
+            document.getElementById('tds-modal').classList.remove('hidden');
+        }
+
+        function closeTdsModal() { document.getElementById('tds-modal').classList.add('hidden'); }
+
+        function switchCardTab(num) {
+            for (let n = 1; n <= 9; n++) {
+                const card = document.getElementById(`card-view-${n}`);
+                const btn = document.getElementById(`card-tab-${n}`);
+                if (n === num) {
+                    if (card) card.classList.remove('hidden');
+                    if (btn) btn.className = "card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-espresso text-brand-champagne shadow border border-brand-gold/30";
+                } else {
+                    if (card) card.classList.add('hidden');
+                    if (btn) btn.className = "card-tab-btn px-3 py-1.5 rounded text-[11px] font-bold transition-all bg-brand-champagne text-brand-espresso hover:bg-brand-latte border border-brand-sand";
+                }
+            }
+        }
+
+        function toggleCardFlip(elem) { elem.querySelector('.business-card').classList.toggle('flipped'); }
+
+        function toggleJsonInspector(open) {
+            const drawer = document.getElementById('json-inspector-drawer');
+            const textarea = document.getElementById('json-editor-textarea');
+            if (open === true || drawer.classList.contains('-translate-x-full')) {
+                textarea.value = JSON.stringify(APP_CONFIG, null, 2);
+                drawer.classList.remove('-translate-x-full');
+            } else {
+                drawer.classList.add('-translate-x-full');
+            }
+        }
+
+        function applyJsonChanges() {
+            try {
+                APP_CONFIG = JSON.parse(document.getElementById('json-editor-textarea').value);
+                renderAppFromConfig();
+                toggleJsonInspector(false);
+                alert("Config updated successfully!");
+            } catch (err) { alert("Invalid JSON: " + err.message); }
+        }
+
+        function resetJsonConfig() {
+            APP_CONFIG = JSON.parse(JSON.stringify(DEFAULT_APP_CONFIG));
+            document.getElementById('json-editor-textarea').value = JSON.stringify(APP_CONFIG, null, 2);
+            renderAppFromConfig();
+            alert("Reset to defaults.");
+        }
+
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+
+        window.onload = function() { renderAppFromConfig(); };
+    </script>
+</body>
+</html>
